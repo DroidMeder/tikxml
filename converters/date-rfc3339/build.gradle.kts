@@ -7,5 +7,4 @@ apply(plugin = "com.vanniktech.maven.publish")
 
 dependencies {
   implementation(project(":core"))
-  testImplementation(Deps.junit)
 }

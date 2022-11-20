@@ -20,12 +20,6 @@ dependencies {
     implementation(Deps.kotlinReflect)
     implementation(Deps.autoServiceAnnotation)
 
-    testImplementation(Deps.junit)
-    testImplementation(Deps.truth)
-    testImplementation(Deps.mockito)
-    testImplementation(Deps.compileTesting)
-    testImplementation(Deps.kotlinTestJunit)
-
     annotationProcessor(Deps.autoServiceProcessor)
     annotationProcessor(Deps.incrementalProcessor)
 }

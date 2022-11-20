@@ -20,6 +20,8 @@ package com.tickaroo.tikxml;
 
 import java.io.Closeable;
 import java.io.IOException;
+import java.nio.charset.Charset;
+
 import okio.BufferedSink;
 import okio.ByteString;
 
@@ -56,7 +58,7 @@ import static com.tickaroo.tikxml.XmlScope.getTopStackElementAsToken;
  * produces the xml:
  * <pre>
  *     {@code
- *      <?xml version="1.0" encoding="UTF-8"?>
+ *      <?xml version="1.0" encoding="windows-1251"?>
  *      <company>
  *        <employee id="1">
  *          <firstname>Hannes</firstname>
@@ -75,13 +77,13 @@ public class XmlWriter implements Closeable {
   private static final Byte DOUBLE_QUOTE = (byte) '"';
   private static final Byte OPENING_XML_ELEMENT = (byte) '<';
   private static final Byte CLOSING_XML_ELEMENT = (byte) '>';
-  private static final ByteString CLOSING_XML_ELEMENT_START = ByteString.encodeUtf8("</");
-  private static final ByteString INLINE_CLOSING_XML_ELEMENT = ByteString.encodeUtf8("/>");
-  private static final ByteString ATTRIBUTE_ASSIGNMENT_BEGIN = ByteString.encodeUtf8("=\"");
-  private static final ByteString OPENING_CDATA = ByteString.encodeUtf8("<![CDATA[");
-  private static final ByteString CLOSING_CDATA = ByteString.encodeUtf8("]]>");
+  private static final ByteString CLOSING_XML_ELEMENT_START = ByteString.encodeString("</", Charset.forName("windows-1251"));
+  private static final ByteString INLINE_CLOSING_XML_ELEMENT = ByteString.encodeString("/>", Charset.forName("windows-1251"));
+  private static final ByteString ATTRIBUTE_ASSIGNMENT_BEGIN = ByteString.encodeString("=\"", Charset.forName("windows-1251"));
+  private static final ByteString OPENING_CDATA = ByteString.encodeString("<![CDATA[", Charset.forName("windows-1251"));
+  private static final ByteString CLOSING_CDATA = ByteString.encodeString("]]>", Charset.forName("windows-1251"));
   private static final ByteString XML_DECLARATION =
-      ByteString.encodeUtf8("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+      ByteString.encodeString("<?xml version=\"1.0\" encoding=\"windows-1251\"?>", Charset.forName("windows-1251"));
 
   /** The output data, containing at most one top-level array or object. */
   private final BufferedSink sink;
@@ -451,7 +453,7 @@ public class XmlWriter implements Closeable {
   }
 
   /**
-   * Writes the xml declaration {@code <?xml version="1.0" encoding="UTF-8"?>}
+   * Writes the xml declaration {@code <?xml version="1.0" encoding="windows-1251"?>}
    *
    * @throws IOException
    */

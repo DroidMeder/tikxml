@@ -7,6 +7,4 @@ apply (plugin = "com.vanniktech.maven.publish")
 
 dependencies {
     compile(Deps.okio)
-    testImplementation(Deps.junit)
-    testImplementation(Deps.assertj)
 }

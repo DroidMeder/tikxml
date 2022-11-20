@@ -1,9 +1,0 @@
-<bookstore>
-  <specialBook>
-    <roman name="Roman 1"/>
-  </specialBook>
-  <otherBooks>
-    <shortStory name="ShortStory 1"/>
-    <roman name="Roman 2"/>
-  </otherBooks>
-</bookstore>

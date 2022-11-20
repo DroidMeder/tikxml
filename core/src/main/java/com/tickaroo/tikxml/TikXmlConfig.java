@@ -50,7 +50,7 @@ public final class TikXmlConfig {
 
   /**
    * Should the default xml declaration be written
-   * {@code <?xml version="1.0" encoding="UTF-8"?>}
+   * {@code <?xml version="1.0" encoding="windows-1251"?>}
    *
    * @return true if should be written, otherwise false
    */

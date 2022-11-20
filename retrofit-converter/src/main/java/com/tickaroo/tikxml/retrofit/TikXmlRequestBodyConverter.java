@@ -33,7 +33,7 @@ import retrofit2.Converter;
  */
 final class TikXmlRequestBodyConverter<T> implements Converter<T, RequestBody> {
 
-  private static final MediaType MEDIA_TYPE = MediaType.parse("application/xml; charset=UTF-8");
+  private static final MediaType MEDIA_TYPE = MediaType.parse("application/xml; charset=windows-1251");
   private final TikXml tikXml;
 
   TikXmlRequestBodyConverter(TikXml tikXml) {

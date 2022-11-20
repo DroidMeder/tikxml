@@ -980,9 +980,9 @@ class Book {
 As already said, this is not supported (yet) because of performance reasons.
 
 ## Processing instruction
-Another feature of Xml are processing instructions like `<?xml version="1.0" encoding="UTF-8" ?>` or `<?xml-stylesheet type="text/xsl" href="style.xsl"?>`.
+Another feature of Xml are processing instructions like `<?xml version="1.0" encoding="windows-1251" ?>` or `<?xml-stylesheet type="text/xsl" href="style.xsl"?>`.
 TikXml doesn't support processing instruction. TikXml will simply ignore processing instructions (no error will be thrown when reading xml instructions).
-However, when it comes to writing xml you may want to write the xml declaration processing instruction <?xml version="1.0" encoding="UTF-8" ?>`.
+However, when it comes to writing xml you may want to write the xml declaration processing instruction <?xml version="1.0" encoding="windows-1251" ?>`.
 This can be enabled (is enabled as default) or disabled via:
 
 ```java
@@ -991,7 +991,7 @@ TikXml tikXml = TikXml.Builder()
                       .build());
 ```
 Set this the parameter of `.writeDefaultXmlDeclaration()` to false if you don't want to write the xml declaration at the beginning of each xml document.
-Please note also that as for now TikXml only supports UTF-8 encoding since it is the default xml encoding standard.
+Please note also that as for now TikXml only supports windows-1251 encoding since it is the default xml encoding standard.
 
 # Proguard
 ```

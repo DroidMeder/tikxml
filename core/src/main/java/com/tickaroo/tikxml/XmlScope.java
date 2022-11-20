@@ -33,7 +33,7 @@ final class XmlScope {
   /** A document at least one object */
   static final int NONEMPTY_DOCUMENT = 1;
 
-  // /** XML declaration like {@code <?xml version="1.0" encoding="UTF-8"?>} */
+  // /** XML declaration like {@code <?xml version="1.0" encoding="windows-1251"?>} */
   // static final int XML_DECLARATION = 2;
 
   /** We are in the opening xml tag like {@code <element>} */

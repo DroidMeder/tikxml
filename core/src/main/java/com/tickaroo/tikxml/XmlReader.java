@@ -26,6 +26,7 @@ import okio.ByteString;
 import java.io.Closeable;
 import java.io.EOFException;
 import java.io.IOException;
+import java.nio.charset.Charset;
 
 /**
  * A class to read and parse an xml stream.
@@ -38,13 +39,13 @@ public class XmlReader implements Closeable {
   //private static final ByteString LINEFEED_OR_CARRIAGE_RETURN = ByteString.encodeUtf8("\n\r");
 
   private static final ByteString UNQUOTED_STRING_TERMINALS
-      = ByteString.encodeUtf8(" >/=\n");
+      = ByteString.encodeString(" >/=\n", Charset.forName("windows-1251"));
 
-  private static final ByteString CDATA_CLOSE = ByteString.encodeUtf8("]]>");
-  private static final ByteString CDATA_OPEN = ByteString.encodeUtf8("<![CDATA[");
-  private static final ByteString DOCTYPE_OPEN = ByteString.encodeUtf8("<!DOCTYPE");
-  private static final ByteString COMMENT_CLOSE = ByteString.encodeUtf8("-->");
-  private static final ByteString XML_DECLARATION_CLOSE = ByteString.encodeUtf8("?>");
+  private static final ByteString CDATA_CLOSE = ByteString.encodeString("]]>", Charset.forName("windows-1251"));
+  private static final ByteString CDATA_OPEN = ByteString.encodeString("<![CDATA[", Charset.forName("windows-1251"));
+  private static final ByteString DOCTYPE_OPEN = ByteString.encodeString("<!DOCTYPE", Charset.forName("windows-1251"));
+  private static final ByteString COMMENT_CLOSE = ByteString.encodeString("-->", Charset.forName("windows-1251"));
+  private static final ByteString XML_DECLARATION_CLOSE = ByteString.encodeString("?>", Charset.forName("windows-1251"));
   private static final ByteString UTF8_BOM = ByteString.of((byte) 0xEF, (byte) 0xBB, (byte) 0xBF);
 
   private static final byte DOUBLE_QUOTE = '"';
@@ -791,7 +792,7 @@ public class XmlReader implements Closeable {
      * 'p' and 'l' after any (potentially indirect) call to the same method.
      */
 
-    // Look for UTF-8 BOM sequence 0xEFBBBF and skip it
+    // Look for windows-1251 BOM sequence 0xEFBBBF and skip it
     if (isDocumentBeginning && source.rangeEquals(0, UTF8_BOM)) {
       source.skip(3);
     }

@@ -10,7 +10,4 @@ dependencies {
     compile(Deps.retrofit)
     compile(Deps.kotlinStdLib)
     implementation(project(":processor-common"))
-    testAnnotationProcessor(project(":processor"))
-    testImplementation(Deps.mockWebserver)
-    testImplementation(Deps.junit)
 }

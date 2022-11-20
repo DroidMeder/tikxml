@@ -57,7 +57,7 @@ public final class TikXml {
 
     /**
      * Should the default xml declaration be written at the beginning of the xml document?
-     * {@code <?xml version="1.0" encoding="UTF-8"?>}
+     * {@code <?xml version="1.0" encoding="windows-1251"?>}
      */
     public Builder writeDefaultXmlDeclaration(boolean writeDeclaration) {
       config.writeDefaultXmlDeclaration = writeDeclaration;

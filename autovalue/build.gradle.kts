@@ -15,9 +15,5 @@ dependencies {
     implementation(Deps.autoValueProcessor)
     implementation(Deps.autoServiceAnnotation)
 
-    testImplementation(Deps.junit)
-    testImplementation(Deps.truth)
-    testImplementation(Deps.compileTesting)
-
     annotationProcessor(Deps.autoServiceProcessor)
 }
